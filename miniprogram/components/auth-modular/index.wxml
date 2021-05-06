@@ -1,0 +1,12 @@
+<view class="cu-modal bottom-modal {{showModal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar justify-end  bg-white">
+      <!-- <view class="action text-green">确定</view> -->
+      <view class="action text-red padding-right" bindtap="hideModal">
+        <text class="cuIcon-close lg text-red"></text>取消</view>
+    </view>
+    <view class="flex flex-direction margin padding-bottom">
+      <button class="cu-btn bg-green lg shadow " open-type="getUserInfo"  bindgetuserinfo='bindGetUserInfo'>授权登录</button>
+    </view>
+  </view>
+</view>

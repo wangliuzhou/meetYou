@@ -1,0 +1,181 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">遇见——TA的详情</view>
+</cu-custom>
+<view class="cu-card case ">
+	<view class="cu-item shadow">
+			<view class="image">
+				<image src="{{userInfo.profile}}" mode="aspectFit"></image>
+        <view class="cu-tag bg-grey">普通</view>
+						</view>
+		<view class="cu-list menu-avatar">
+			<!-- <view class="cu-item"> -->
+			<view class="content flex-sub padding-xs margin-lr-sm">
+				<view class="flex justify-between">
+					<view class="text-bold">编号:<text class="text-{{form_base.sex==1?'blue':'red'}}">{{userInfo.userCode}}</text></view>
+					<view class="text-gray lg text">
+						<text class="cuIcon-news text-blue margin-lr-xs"></text>
+						<text class="cuIcon-crownfill text-yellow margin-lr-xs"></text>
+						<text class="cuIcon-safe text-green margin-lr-xs"></text>
+					</view>
+				</view>
+				<view class="flex " style="white-space:nowrap">
+					<view class="text-gray text-cut">{{form_base.region}}，{{form_base.age}}，{{base.eduction_Arr[form_base.eduction_index]}}，{{base.work_type_Arr[form_base.work_type_index]}}</view>
+				</view>
+				<!-- </view> -->
+			</view>
+		</view>
+	</view>
+</view>
+  <view class="margin-sm padding bg-myColor text-bold">{{form_base.signature}}</view>
+<!-- 机构评价 -->
+<view class="container lg">
+  <view class="padding-xs text-bold text-center bg-white">严选平台提示：</view>
+  <view class="padding-xs text-myColor text-bold text-center bg-white">会员身份未认证，资料未经核实，收入未提供证明</view>
+  <view class="cu-bar bg-white" >
+    <view class="action sub-title">
+      <text class="text-xl text-bold  {{sex=='1'?'text-blue':'text-pink'}}">Ta的资料</text>
+      <text class=" {{sex=='1'?'bg-blue':'bg-pink'}}"></text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+  <view class="cu-list menu text-left solid-top" >
+    <view class="cu-item" >
+      <view class="content">
+        <text class="text-grey">身高</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.hight_Arr[form_base.hight_index]}}CM</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">体重</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.weight_Arr[form_base.weight_index]}}斤</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">年龄</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.age}}岁</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">生肖</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.shengxiao}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">星座</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.xingzuo}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">学历</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.eduction_Arr[form_base.eduction_index]}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">籍贯</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.region}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">婚史</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.marry_Arr[form_base.marry_index]}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">喝酒抽烟</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.habits?form_base.habits:'都没有'}}</text>
+      </view></view></view></view>
+<view class="container lg">
+
+  <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-pink">财务状况和家庭</text>
+      <text class="bg-pink"></text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+  <view class="cu-list menu text-left solid-top">
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">工作性质</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.work_type_Arr[form_base.work_type_index]}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">年收入</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.income}}万</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">持有房产</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{base.real_estate_Arr[form_base.real_estate_index]}}</text>
+      </view>
+    </view>
+        <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">家庭成员</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">小目标还没有实现！</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="text-grey">个人财产（含车房）</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">{{form_base.wealth}}万</text>
+      </view>
+    </view></view></view>
+
+<view class="cu-bar bg-white solid-bottom margin-top-xs">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>对Ta的评价
+  </view>
+  <view class="action" bindtap="">
+    <text class="cuIcon-{{show_path?'fold':'unfold'}} text-blue"></text>
+  </view>
+</view>
+  <view class="margin">
+      <view class="cu-form-group">
+      <textarea maxlength="240"  bindinput="textareaAInput"
+        placeholder="评价这个会员"></textarea>
+    </view>
+ <text class="text-sm text-red">*您的评价仅您本人和管理员可见。</text>
+  <view class="padding flex flex-direction margin-sm">
+  <button class="cu-btn bg-blue lg">提交评价</button>
+</view>
+</view>

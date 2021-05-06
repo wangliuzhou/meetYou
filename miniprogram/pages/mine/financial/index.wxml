@@ -1,0 +1,79 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+	<view slot="content">会员详细信息</view>
+</cu-custom>
+<form>
+	
+	<view class="cu-form-group">
+		<view class="title">年收入</view>
+		<picker mode="selector" bindchange="SrChange" value="{{indexSr}}" range="{{Sr}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{Sr[indexSr]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">工作性质</view>
+		<picker mode="selector" bindchange="familyChange" value="{{indexFamily}}" range="{{family}}"
+			custom-item="{{customItem}}">
+			<view class="picker">
+				{{family[indexFamily]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">家庭财产</view>
+		<picker mode="selector" bindchange="familyChange" value="{{indexFamily}}" range="{{family}}"
+			custom-item="{{customItem}}">
+			<view class="picker">
+				{{family[indexFamily]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">婚史</view>
+		<picker mode="selector" bindchange="RegionChange" value="{{myhs}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">名下房产</view>
+		<radio-group class="block">
+
+			无<radio class="blue"></radio>
+			一套<radio class="red"></radio>
+			多套<radio class="red"></radio>
+		</radio-group>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">名下车辆</view>
+		<radio-group class="block">
+
+			无<radio class="blue"></radio>
+			一辆<radio class="red"></radio>
+			多辆<radio class="red"></radio>
+		</radio-group>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">家庭状况</view>
+		<picker mode="selector" bindchange="RegionChange" value="{{myhs}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">您的才艺（需要拿的出手的）</view>
+		<picker mode="selector" bindchange="familyChange" value="{{indexFamily}}" range="{{family}}"
+			custom-item="{{customItem}}">
+			<view class="picker">
+				{{family[indexFamily]}}
+			</view>
+		</picker>
+	</view>	
+	</form>
+
+<view class="padding margin-bottom-lg">
+	<button class="cu-btn block bg-blue margin-tb-sm lg" disabled type="">提交</button>
+</view>

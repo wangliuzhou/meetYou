@@ -1,0 +1,6 @@
+page{
+    background-color: white;
+}
+.line1 {
+    height: 100rpx;
+}

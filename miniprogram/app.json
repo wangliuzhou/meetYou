@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/p_detail/p_detail",
+    "pages/activity/activity",
+    "pages/act_detail/index",
+    "pages/act_pass/index",
+    "pages/act_pass/pass_detail",
+    "pages/random_act/index",
+
+       
+    "pages/mine/index",
+    "pages/mine/myDetail/index",
+    "pages/mine/financial/index",
+    "pages/mine/asking/index",
+    "pages/mine/personal/index",
+    "pages/mine/identify/index",
+    "pages/mine/identify/guide",
+    "pages/complete/index",
+    "pages/vote/index",
+    "pages/vote/vote_res",
+    "pages/test/index",
+ 
+    "pages/login/index",
+    "pages/notOpen/index",
+    "pages/demo/index",
+    "pages/error/index",
+
+    "pages/add_user/index",
+    "pages/modify/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "遇见——更多朋友",
+    "navigationStyle": "default",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "i-login":"/components/login/index"
+  },
+  "tabBar": {
+    "color": "#8799a3",
+    "selectedColor": "#ed8b8d",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "人海茫茫",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index_use.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "images/tabbar/act.png",
+        "selectedIconPath": "images/tabbar/act_use.png"
+      },
+        {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine_use.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于更好的帮您匹配"
+    }
+  }
+}

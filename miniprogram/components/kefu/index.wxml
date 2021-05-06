@@ -1,0 +1,16 @@
+<view class="kefu-wrap">
+    <view class="text-grey">咨询客服</view>
+    <view class="temp-wrap-1">
+        <image class="qrcode" src="{{kefu_qrcode_url}}"></image>
+        <view>
+            <view class="wrap-line1">
+                <view>
+                    <text class="temp-2">微信号：</text>
+                    <text class="kefu-num">{{kefu_num}}</text>
+                </view>
+                <view bindtap="copy_weixin" class="copy-btn">复制</view>
+            </view>
+            <view class="text-sm text-gray">想了解更多详细信息，识别二维码或添加微信号，咨询客服小姐姐哦～</view>
+        </view>
+    </view>
+</view>

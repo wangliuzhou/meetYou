@@ -1,0 +1,76 @@
+
+<view class="bg-img padding-tb-xl"
+  style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608544013396&di=29e6a5e65c8b0e034de1daa8e65430c3&imgtype=0&src=http%3A%2F%2Fcdn7-static.tshe.com%2Fuploads%2Fimages%2FTopicImage%2F1553137030629669b3d0fly1fzdcorp9ulj215o0rsaea.jpg');height: 400rpx;">
+  <view class="flex margin-xl text-xxl text-shadow justify-center">
+    <text class="text-pink text-bold">瑞信喝咖啡活动
+    </text>
+  </view>
+  <view class=" flex padding-xxs justify-center bg-blue light"><text class="text-black text-bold">主题：打王者荣耀啦
+    </text>
+  </view>
+</view>
+
+
+
+
+
+ 
+  <view class="cu-list menu">
+    <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-friend text-red"></text>
+      <text class="text-grey">报名人数：</text>
+    </view>
+    <view class="action">
+        <text class="text-bold">男：{{boys}}/{{boys_set_num}}；女：{{girls}}/{{boys_set_num}}</text>
+      </view>
+  </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-countdown text-green"></text>
+        <text class="text-grey">活动时间:</text>
+      </view>
+      <view class="action">
+        <text class="text-grey">明年今天！</text>
+      </view>
+    </view> 
+    
+    
+    <!-- <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-tagfill text-orange"></text>
+        <text class="text-grey">标签</text>
+      </view>
+      <view class="action">
+        <view class="cu-tag round bg-orange light">音乐</view>
+        <view class="cu-tag round bg-olive light">电影</view>
+        <view class="cu-tag round bg-blue light">旅行</view>
+      </view>
+    </view> -->
+  
+
+</view>
+<view class="cu-bar bg-white margin-top-xxs">
+  <view class="action">
+    <text class="cuIcon-title text-pink"></text>本次活动回顾
+  </view>
+ 
+</view>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+
+<view class="cu-bar bg-white solid-bottom margin-top-xs">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>活动内容：
+  </view>
+</view>
+<view class="padding-left-sm padding-right-sm bg-white">
+  
+    <mp-html content="{{html}}" />
+ 
+</view>

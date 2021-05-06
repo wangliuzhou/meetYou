@@ -1,0 +1,70 @@
+<wxs src="../../utils/utils.wxs" module="u" />
+<cu-custom bgColor="bg-myColor" isCustom="{{true}}">
+	<view slot="content">遇见——更多朋友</view>
+</cu-custom>
+<view class="cu-bar search bg-white padding-sm">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入会员号搜索" confirm-type="search" bindinput="input"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-love shadow-blur round" bindtap="search">搜索</button>
+    </view>
+  </view>
+
+<view class="cu-bar bg-white solid-bottom margin-top-xs">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-myColor">最新会员</text>
+      <text class="bg-myColor"></text>
+    </view>
+  </view>
+<scroll-view scroll-x="true" style=" white-space: nowrap; " enable-flex="true" class="bg-white">
+<view  wx:for="{{new_user}}" wx:key="index" class=" margin-left-sx" style="width: 80px; height: 100px; display: inline-block">
+    <view bindtap="showUserDetail" class="padding-sm">
+      <view class="cu-avatar round lg margin-xxs">
+				<image src="{{item.wxUserInfo.avatarUrl}}" class="cu-avatar round lg"></image>
+               <view class="cu-tag badge {{item.wxUserInfo.gender==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
+      <view style="font-size:26rpx;color:#333;margin-top:10rpx;text-align:center;">{{item.userCode}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cu-bar bg-white solid-bottom margin-top-xs">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-myColor">推荐单身</text>
+      <text class="bg-myColor"></text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+<view class="cu-card case" wx:for="{{rec_user}}" wx:key="index">
+	<view class="cu-item shadow">
+			<view class="image">
+				<image src="{{item.profile}}" mode="aspectFit"></image>
+        <view class="cu-tag bg-{{premium[item.premium].color}}">{{premium[item.premium].name}}</view>
+				<view class="cu-bar bg-shadeBottom">
+					<text class="text-cut">{{item.base.signature}}</text>
+				</view>
+			</view>
+		<view class="cu-list menu-avatar">
+			<!-- <view class="cu-item"> -->
+				<view class="content flex-sub padding-xs margin-lr-sm">
+				<view class="flex justify-between">
+					<view class="text-bold">编号:<text class="text-{{form_base.sex==1?'blue':'red'}}">{{item.userCode}}</text></view>
+					<view class="text-gray lg text">
+            <text class="cuIcon-female text-red margin-lr-xs" wx:if="{{item.base.sex==2}}"></text>
+            <text class="cuIcon-male text-blue margin-lr-xs" wx:if="{{item.base.sex==1}}"></text>
+						<text class="cuIcon-news text-blue margin-lr-xs" wx:if="{{item.identi==1}}"></text>
+						<text class="cuIcon-crownfill text-yellow margin-lr-xs" wx:if="{{item.vip!==0}}"></text>
+						<text class="cuIcon-safe text-green margin-lr-xs" wx:if="{{item.info_auth==1}}"></text>
+					</view>
+				</view>
+				<view class="flex " style="white-space:nowrap">
+					<view class="text-gray text-cut">{{item.base.region}}，{{u.getAge(item.base.birthday)}}，{{base.eduction_Arr[item.base.eduction_index]}}，{{base.work_type_Arr[item.base.work_type_index]}}</view>
+				</view>
+				<!-- </view> -->
+			</view>
+		</view>
+	</view>
+</view>
+<i-login class="auth" wx:if="{{auth_need}}" bind:closeAuth="closeAuth"></i-login>

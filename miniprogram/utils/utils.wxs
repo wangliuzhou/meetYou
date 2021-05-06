@@ -1,0 +1,84 @@
+var formatTime = function (date) {
+  var date = getDate(date);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var weekday = date.getDay()
+  var week = getWeek(weekday)
+  return month + '月' + day + '日' + '（' + week +'）'+ hour + '点'
+}
+
+function getWeek(e) {
+  var day = getDate(e).getDay();
+  switch (day) {
+    case 0:
+      return "星期天"
+      break;
+    case 1:
+      return "星期一"
+      break;
+    case 2:
+      return "星期二"
+      break;
+    case 3:
+      return "星期三"
+      break;
+    case 4:
+      return "星期四"
+      break;
+    case 5:
+      return "星期五"
+      break;
+    case 6:
+      return "星期六"
+      break;
+  }
+}
+function getAge(birthday) {
+  var returnAge = '';
+  var mouthAge = '';
+  var strBirthdayArr = birthday.split("-");
+  var birthYear = strBirthdayArr[0];
+  var birthMonth = strBirthdayArr[1];
+  var birthDay = strBirthdayArr[2];
+  var d = getDate();
+  var nowYear = d.getFullYear();
+  var nowMonth = d.getMonth() + 1;
+  var nowDay = d.getDate();
+  if (nowYear == birthYear) {
+    returnAge = 0; //同年 则为0岁
+    var monthDiff = nowMonth - birthMonth; //月之差 
+    if (monthDiff < 0) {
+    } else {
+      mouthAge = monthDiff + '个月';
+    }
+  } else {
+    var ageDiff = nowYear - birthYear; //年之差
+    if (ageDiff > 0) {
+      if (nowMonth == birthMonth) {
+        var dayDiff = nowDay - birthDay; //日之差 
+        if (dayDiff < 0) {
+          returnAge = ageDiff - 1 + '岁';
+        } else {
+          returnAge = ageDiff + '岁';
+        }
+      } else {
+        var monthDiff = nowMonth - birthMonth; //月之差 
+        if (monthDiff < 0) {
+          returnAge = ageDiff - 1 + '岁';
+        } else {
+          mouthAge = monthDiff + '个月';
+          returnAge = ageDiff + '岁';
+        }
+      }
+    } else {
+      returnAge = -1; //返回-1 表示出生日期输入错误 晚于今天
+    }
+  }
+  return returnAge; //返回周岁年龄+月份
+}
+module.exports = {
+  formatTime: formatTime,
+  getAge:getAge
+}

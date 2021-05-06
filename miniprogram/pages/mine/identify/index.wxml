@@ -1,0 +1,83 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">实名认证</view>
+</cu-custom>
+<form>
+  <view class="action justify-center margin-lg align-center">
+    <text class="cuIcon-infofill text-blue margin-xs" style="font-size:32rpx"></text>
+    <text class="text-gray">请上传真实的个人信息，认证通过后将无法修改</text>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">姓名</view>
+    <input placeholder="请填入证件姓名"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">身份证号</view>
+    <input placeholder="请填入证件号码"></input>
+  </view>
+  <view class="page-wrap">
+  <view class="fg-des">——<text style="margin:0 30rpx">请根据示例图上传清晰照片</text>——
+  </view>
+    <view class="img-wrap-row">
+        <view class="item">
+            <view class="item-image">
+                <image class="image-demo" mode="widthFix" src="/images/rz_demo_1.png"></image>
+            </view>
+            <view class="item-des ">身份证正面照示意图</view>
+        </view>
+        <view bindtap="chooseUpImage" class="item">
+            <view class="item-image">
+                <image class="image-camera" mode="widthFix" src="/images/ic_camera.png" wx:if="{{form.shiming_shenfen_up==''}}"></image>
+                <image class="image-demo" mode="widthFix" src="{{form.shiming_shenfen_up_t}}" wx:else></image>
+            </view>
+            <view class="item-des validate">上传身份证正面</view>
+        </view>
+    </view>
+    <image class="check-status" src="/images/checkimg.png" wx:if="{{userInfo.shiming_ispass==1}}"></image>
+    <image class="check-status" src="/images/checked.png" wx:if="{{userInfo.shiming_ispass==2}}"></image>
+    <view class="img-wrap-row">
+        <view class="item">
+            <view class="item-image">
+                <image class="image-demo" mode="widthFix" src="/images/rz_demo_2.png"></image>
+            </view>
+            <view class="item-des">身份证反面照示意图</view>
+        </view>
+        <view bindtap="chooseBackImage" class="item">
+            <view class="item-image">
+                <image class="image-camera" mode="widthFix" src="/images/ic_camera.png" wx:if="{{form.shiming_shenfen_back==''}}"></image>
+                <image class="image-demo" mode="widthFix" src="{{form.shiming_shenfen_back_t}}" wx:else></image>
+            </view>
+            <view class="item-des validate">上传身份证反面</view>
+        </view>
+    </view>
+    <view style="padding:24rpx 0 24rpx 0;">
+        <button bindtap="save" class="common-btn" wx:if="{{userInfo.shiming_ispass==0}}">申请认证</button>
+        <button bindtap="save" class="common-btn" wx:if="{{userInfo.shiming_ispass==3}}">重新申请认证</button>
+    </view>
+ </view>
+</form>
+<view class="cu-bar bg-white">
+    <view class="action">
+                 <text class="text-gray">1、认证资料仅用于官方审核，绝对保密。</text>
+    </view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action">
+         <text class="text-gray">2、照片自动添加图片水印。</text>
+    </view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action">
+           
+      <text class="text-gray">3、未实名认证，将无法参加互动节目及红娘关注。</text>
+    </view>
+  </view>
+  
+  <view class="cu-bar margin-top-xl solid-bottom  justify-center" >
+    <text class="text-gray text-xl">实名认证优势</text>
+  </view>
+  <view class="cu-list grid col-3 ">
+    <view class="cu-item bg-gray"> <text class="cuIcon-safe text-gray margin-bottom-xs" style="font-size:72rpx"></text><text >账户安全保障</text></view>
+    <view class="cu-item bg-gray"> <text class="cuIcon-news text-gray margin-bottom-xs" style="font-size:72rpx"></text><text >实名认证标签</text></view>
+    <view class="cu-item bg-gray"> <text class="cuIcon-rank text-gray margin-bottom-xs " style="font-size:72rpx"></text><text >更高脱单几率</text></view>
+
+  </view>

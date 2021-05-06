@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">认证说明</view>
+</cu-custom>
+<view class="margin">
+
+  <view class=' bg-white padding-lg radius shadow-lg bg-blue light'>
+    <view class='text-center margin-bottom text-xl   text-bold text-black'>实名认证说明：</view>
+    <view class='text-center margin-bottom text-lg text-orange'>
+      相关政策规定，网络交友平台，需要提供本人一致的实名认证信息。有实名认证信息，才能参加活动，保证大家人生安全，远离诈骗。</view>
+    <view class='text-content'>
+
+      <view class='text-left margin-top-sm'>郑重承诺：实名信息已加密处理，仅作海关清关使用，其他人均无法查看。</view>
+
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-gray">
+  <view class="action">
+    <text class=" text-gray">身份证照片正确示例:</text><text class="text-bold text-black">人相面</text>
+  </view>
+</view>
+<view class="container">
+  <view class="bracket">
+         <view class="target">
+        <image src="{{exp_face}}" mode="aspectFit" bindtap="idc_face"></image>
+        <view class="hh">此为样图，请注意区别</view>
+      </view>
+       
+  </view>
+</view>

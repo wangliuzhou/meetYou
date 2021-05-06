@@ -1,0 +1,3 @@
+<i-login class="auth"></i-login>
+{{jieguo}}
+<input type="number" name="aa" id="" class="bg-red"></input>

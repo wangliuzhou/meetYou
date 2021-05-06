@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">性格测试</view>
+</cu-custom>
+<view class="container sm"><view wx:if="{{index<=0}}"class="text-gray text-left">此测试为美国心理学家卡特尔经过多年的研究得出的成果。所有选项没有“对”/“错”之分，请根据自己情况和自己第一感觉不假思索作答。最终结果只是对你个性判断，没有高分低分。某些题目只是为了测试前后是否一致，请诚实答题。</view>
+<view class=" text-left">测试共<text class="text-blue text-bold">187</text>选择题，一般<text class="text-blue text-bold">30分钟左右</text>做完，请尽量不要超过<text class="text-blue text-bold">45分钟</text>。</view>
+<view class="margin-top">
+<view class="flex text-lg justify-end">用时：<view class="text-center bg-blue light animation-{{animation}} animation-reverse basis-sm shadow"><text class="text-yellow text-bold text-xl">{{workTime}}</text></view></view>
+<view class=" margin-top-lg" style="min-height:150rpx">
+<view class="text-lg text-bold text-left">第{{index+1}}题：{{Q.question}}</view>
+</view>
+<view class="margin-bottom-lg" wx:for="{{Q.option}}" wx:for-index="index" wx:key="index">
+    <button class="cu-btn block round bg-olive lg" data-value="{{index}}" bind:tap="next">
+   {{item}}</button>
+ </view>
+</view>
+</view>

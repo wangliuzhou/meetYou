@@ -1,0 +1,14 @@
+<view class="container sm">
+    <view class="line1"></view>
+
+    <view class="solid-bottom text-xsl padding">
+        <text class=" cuIcon-flashbuyfill text-green"></text>
+    </view>
+    <view class="solid-bottom text-xl padding"><text class="text-gray text-bold">对不起，此功能暂未开放</text></view>
+    <view class="solid-bottom text-lg padding"><text class="text-gray text-bold">敬请期待</text></view>
+    <view class="solid-bottom text-lg padding">
+        <navigator url="/pages/index/index" open-type="switchTab" hover-class="none">
+       <text class="text-green text-bold">返回主页</text></navigator>
+    </view>
+    <view class="solid-bottom text-lg padding margin-top-lg"><text class="text-orange">{{sentence}}</text></view>
+</view>

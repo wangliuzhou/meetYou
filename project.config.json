@@ -1,0 +1,180 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "appid": "wx7e0031412fc70224",
+  "projectname": "meetU1.0",
+  "libVersion": "2.14.1",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/act_detail/index",
+          "pathName": "pages/act_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/demo/index",
+          "pathName": "pages/demo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/p_detail/p_detail",
+          "pathName": "pages/p_detail/p_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vips/vips",
+          "pathName": "pages/vips/vips",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/moreInfo/moreInfo",
+          "pathName": "pages/moreInfo/moreInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/identify/identify",
+          "pathName": "pages/mine/identify/identify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/honor/index",
+          "pathName": "pages/honor/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/notOpen/index",
+          "pathName": "pages/notOpen/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vips/plan/plan",
+          "pathName": "pages/vips/plan/plan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/aboutus/index",
+          "pathName": "pages/aboutus/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/apply/index",
+          "pathName": "pages/apply/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vote/index",
+          "pathName": "pages/vote/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/admin/index",
+          "pathName": "pages/admin/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/complete/index",
+          "pathName": "pages/complete/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/aboutus/index",
+          "pathName": "pages/aboutus/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/act_pass/index",
+          "pathName": "pages/act_pass/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/identify/identify",
+          "pathName": "pages/mine/identify/guide",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vips/plan/plan",
+          "pathName": "pages/vips/plan/plan",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

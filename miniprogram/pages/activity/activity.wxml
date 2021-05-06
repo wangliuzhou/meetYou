@@ -1,0 +1,69 @@
+<wxs src="../../utils/utils.wxs" module="u" />
+<cu-custom bgColor="bg-love" isCustom="{{true}}">
+  <view slot="content">遇见——活动high起来</view>
+</cu-custom>
+<view>
+  <view class="margin-xs">
+    <video class="myvideo" id="myVideo" src="{{systemInfo.video}}" binderror="videoErrorCallback" autoplay
+      show-center-play-btn='{{true}}' show-play-btn="{{true}}" controls show-fullscreen-btn="{{false}}"
+      show-progress="{{true}}"></video>
+  </view>
+  <view class="cu-bar">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text>
+      <text class="text-lg text-bold text-myColor">最新活动</text>
+    </view>
+  </view>
+
+  <!-- 这里用的是数据库返回的数值 -->
+  <view class="cu-card article" bindtap="go_random">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">随机活动报名</view>
+      </view>
+      <view class="content">
+        <image src="../../images/11.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">随机活动，最好的交友方式，每星期都会进行若干次，快来报名吧！管理员提前拉群。</view>
+          <view>
+            <view class="cu-tag bg-mauve light sm round">随机</view>
+            <view class="cu-tag bg-orange light sm round">预报名</view>
+            <view class="cu-tag bg-green light sm round">公益</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-card article" wx:for="{{actvitys}}" wx:key="index" bindtap="go_detail" data-act="{{item}}">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+      </view>
+      <view class="content">
+        <image src="{{item.profile}}" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">{{u.formatTime(item.act_time)}}/{{item.place}}/{{item.subtitle}}</view>
+          <view>
+            <view class="cu-tag bg-yellow light sm round" wx:for="{{item.tags}}" wx:key="index">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-grey" bindtap="go_pass">往期活动</button>
+  </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green">确定</view>
+      <view class="action text-red" bindtap="hideModal">取消</view>
+    </view>
+    <view class="padding-lg flex flex-direction">
+      <button class="cu-btn bg-blue lg">玄灰</button>
+    </view>
+  </view>
+</view>
+<i-auth showModal="{{showModal}}"></i-auth>

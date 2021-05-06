@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cu-custom": "/components/cu-custom/cu-custom",
+    "i-auth": "../../components/auth-modular/index"
+  },
+  "navigationStyle": "custom"
+}

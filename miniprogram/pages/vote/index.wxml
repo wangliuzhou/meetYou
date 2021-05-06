@@ -1,0 +1,76 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">遇见——投票</view>
+</cu-custom>
+<view class="margin">
+  <view class='bg-white padding-sm radius shadow-lg light margin-bottom'>
+    <view class='text-center text-bold text-gray'>您的意见，至关重要。投票后查看投票数据。</view>
+
+  </view>
+  <view class='text-center margin-bottom'>
+    <view class="cu-form-group">
+      <view class="title">您的性别</view>
+      <view>
+        <radio-group class="radio-group" bindchange="sexChange">
+          <text class="text-blue margin-right-xs">男</text><radio class="blue" value='1'></radio>
+          <text class="text-red margin-lr-xs">女</text><radio class="red" value='2'></radio>
+        </radio-group>
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">您的年龄</view>
+      <picker mode="selector" bindchange="modify_func" data-field="age_index" value="{{~~(age.length/2)}}"
+        range="{{age}}">
+        <view class="picker">
+          {{result.age_index==null?'请选择':age[result.age_index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">您的学历</view>
+      <picker mode="selector" bindchange="modify_func" data-field="education_index" value="{{~~(education.length/2)}}"
+        range="{{education}}">
+        <view class="picker">
+          {{result.education_index==null?'请选择':education[result.education_index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">您的职业</view>
+      <picker mode="selector" bindchange="modify_func" data-field="work_index" value="{{~~(work.length/2)}}"
+        range="{{work}}">
+        <view class="picker">
+          {{result.work_index==null?'请选择':work[result.work_index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">您的婚姻状况</view>
+      <picker mode="selector" bindchange="modify_func" data-field="marry_index" value="{{~~(marry.length/2)}}"
+        range="{{marry}}">
+        <view class="picker">
+          {{result.marry_index==null?'请选择':marry[result.marry_index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class=' bg-white padding-sm radius shadow-lg bg-blue light'>
+    <view class='text-center  text-xl  text-bold text-black'>{{title}}</view>
+  </view>
+
+  <view class=' bg-white padding-sm radius shadow-lg bg-green light'>
+    <block wx:for="{{vote}}" wx:key="index">
+      <view class='margin-bottom-xs text-black'>{{index+1}}、{{item.q}}</view>
+      <radio-group bindchange="resultChange" class="block" id='{{index}}'>
+        <view class='flex solid-bottom margin-bottom-xs justify-between' wx:for="{{item.s}}" wx:for-item="item2" wx:for-index='i' wx:key="i">
+          <view class="text-orange">{{alphabet[i]}}、{{item2}}</view>
+          <view>
+            <radio class="black margin-left-sm" value="{{i}}"></radio>
+          </view>
+        </view>
+      </radio-group>
+    </block>
+  </view>
+  <view class="padding flex flex-direction margin-sm">
+    <button class="cu-btn bg-green lg">填完交卷</button>
+  </view>
+</view>

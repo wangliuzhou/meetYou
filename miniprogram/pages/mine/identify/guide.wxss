@@ -1,0 +1,37 @@
+.container {
+  width: 88%;
+  position: relative;
+  /*出发BFC，否则内部元素撑不开container*/
+  overflow: hidden;
+  /*为了让大家看清楚效果加的边*/
+  border: 1px solid black;
+  margin: 0 auto;
+  border-radius: 6rpx;
+}
+
+/*支架*/
+.bracket {
+  margin-top: 63%;
+  
+}
+
+.inside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:white;
+  
+}
+ .items{
+  position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	height: 36px;
+  width: 36px;
+  
+ }

@@ -1,0 +1,96 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/demo/index",
+          "pathName": "pages/demo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "过去活动详情",
+          "pathName": "pages/p_detail/p_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "实名登记",
+          "pathName": "pages/mine/identify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "无此功能",
+          "pathName": "pages/notOpen/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "随机活动详情",
+          "pathName": "pages/random_act/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "服务条款",
+          "pathName": "pages/treaty/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "二维码测试",
+          "pathName": "pages/random_act/index",
+          "query": "from='mqjl7'",
+          "scene": 1011
+        },
+        {
+          "name": "错误处理",
+          "pathName": "pages/error/index",
+          "query": "err=这个错误很严重",
+          "scene": null
+        },
+        {
+          "name": "个人详情",
+          "pathName": "pages/p_detail/p_detail",
+          "query": "searchCode=1U74U",
+          "scene": null
+        },
+        {
+          "name": "普通活动详情",
+          "pathName": "pages/act_detail/index",
+          "query": "id=0001",
+          "scene": null
+        },
+        {
+          "name": "pages/modify/index",
+          "pathName": "pages/modify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "投票",
+          "pathName": "pages/vote/index",
+          "query": "from='mqjl7'",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/mine/index",
+          "query": "id=0001",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
