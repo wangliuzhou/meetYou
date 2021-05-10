@@ -39,7 +39,7 @@
         <view class="item-des validate">上传身份证正面</view>
       </view>
     </view>
-    <image class="check-status" src="/images/checkimg.png" wx:if="{{identi==2}}" />
+    <image class="check-status" src="/images/checking.png" wx:if="{{identi==2}}" />
     <image class="check-status" src="/images/checked.png" wx:if="{{identi==1}}" />
     <view class="img-wrap-row">
       <view class="item">

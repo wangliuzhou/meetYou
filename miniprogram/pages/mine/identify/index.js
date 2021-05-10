@@ -58,6 +58,8 @@ Page({
         this.setData({
           [tempName]: tempFilePath
         });
+        // 用户进入页面后，有重新选择了图片
+        this[tempName] = true;
       }
     });
   },
@@ -96,14 +98,22 @@ Page({
       this.setData({
         identi: 2
       });
+      wx.showLoading({
+        title: "正在审核中...",
+        mask: true
+      });
     } else {
       wx.showToast({
         title: "申请认证失败，请重新认证",
         icon: "none"
       });
     }
-    wx.hideLoading();
-    console.log(556644, errMsg);
+    setTimeout(() => {
+      wx.hideLoading();
+      wx.navigateBack({
+        delta: 1
+      });
+    }, 2000);
   },
 
   // 校验相关数据
@@ -133,6 +143,11 @@ Page({
 
   // 上传文件
   async upload(openid, filePath, isFront) {
+    const tempName = isFront ? "identiFront" : "identiBack";
+    // 如果没有选择过图片，直接返回fileId
+    if (!this[tempName]) {
+      return filePath;
+    }
     const suffix = this.getImageSuffix(filePath);
     const { fileID } = await wx.cloud.uploadFile({
       cloudPath:
