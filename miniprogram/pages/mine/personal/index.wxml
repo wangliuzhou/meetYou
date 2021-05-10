@@ -1,79 +1,80 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-	<view slot="content">个人展示资料</view>
+<cu-custom bgcolor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">个人展示资料</view>
 </cu-custom>
 <view class="page">
-<view class="cu-bar bg-white solid-bottom margin-top-xs">
+  <view class="cu-bar bg-white solid-bottom margin-top-xs">
     <view class="action sub-title">
       <text class="text-xl text-bold text-myColor">展示预览</text>
       <text class="bg-myColor"></text>
       <!-- last-child选择器-->
-   </view>
-   <view class="action">
-    <button class="cu-btn bg-myColor round" bindtap="create">分享我的名片</button>
-		</view>
-
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-myColor round" bindtap="shareMyCard">分享我的名片</button>
+    </view>
   </view>
-<view class="cu-card case {{isCard?'no-card':''}}" >
-  <view class="cu-item shadow">
-    <navigator url="/pages/p_detail/p_detail" hover-class="none">
-    <view class="image">
-      <image src="{{profile}}" mode="aspectFit"></image>
-      <view class="cu-tag bg-blue">精选</view>
-      <view class="cu-bar bg-shadeBottom">
-        <text class="text-cut">{{signature}}</text>
+  <view class="cu-card case {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <navigator url="/pages/p_detail/p_detail" hover-class="none">
+        <view class="image">
+          <image src="{{profile}}" mode="aspectFit" />
+          <view class="cu-tag bg-blue">精选</view>
+          <view class="cu-bar bg-shadeBottom">
+            <text class="text-cut">{{signature}}</text>
+          </view>
+        </view>
+      </navigator>
+      <view class="cu-list menu-avatar">
+        <!-- <view class="cu-item"> -->
+        <view class="content flex-sub padding-sm">
+          <view class="flex justify-between">
+            <view class="text-bold">
+              编号:
+              <text class="text-{{form_base.sex==1?'blue':'red'}}">{{userCode}}</text>
+            </view>
+            <view class="text-gray lg text">
+              <text class="cuIcon-news text-blue margin-lr-xs"></text>
+              <text class="cuIcon-crownfill text-yellow margin-lr-xs"></text>
+              <text class="cuIcon-safe text-green margin-lr-xs"></text>
+            </view>
+          </view>
+          <view class="flex" style="white-space:nowrap">
+            <view class="text-bold">特点：</view>
+            <view class="text-gray text-cut">帅哥，聪明，善良，有远大理想。巴拉巴拉巴巴爸爸吧</view>
+          </view>
+
+          <!-- </view> -->
+        </view>
       </view>
     </view>
-  </navigator>
-    <view class="cu-list menu-avatar">
-      <!-- <view class="cu-item"> -->
-        <view class="content flex-sub padding-sm">
-				<view class="flex justify-between">
-					<view class="text-bold">编号:<text class="text-{{form_base.sex==1?'blue':'red'}}">{{userCode}}</text></view>
-					<view class="text-gray lg text">
-						<text class="cuIcon-news text-blue margin-lr-xs"></text>
-						<text class="cuIcon-crownfill text-yellow margin-lr-xs"></text>
-						<text class="cuIcon-safe text-green margin-lr-xs"></text>
-					</view>
-				</view>
-				<view class="flex " style="white-space:nowrap">
-					<view class="text-bold">特点：</view><view class="text-gray text-cut">帅哥，聪明，善良，有远大理想。巴拉巴拉巴巴爸爸吧</view>
-				</view>
-
-				<!-- </view> -->
-			</view>
-    </view>
   </view>
-</view>
-<view class="cu-bar btn-group bg-white">
+  <view class="cu-bar btn-group bg-white">
     <button class="cu-btn bg-blue shadow-blur" bindtap="chooseImage">上传展示照</button>
     <button class="cu-btn text-blue line-blue shadow">二维码名片</button>
   </view>
-<view class="cu-bar bg-white">
-  <view class="action">
-       <text class="text-gray">确保个人形象照片为本人清晰正脸照，一张良好的形象照更能吸引到别人哦</text>
+  <view class="cu-bar bg-white">
+    <view class="action">
+      <text class="text-gray">确保个人形象照片为本人清晰正脸照，一张良好的形象照更能吸引到别人哦</text>
+    </view>
   </view>
-</view>
-<view class="margin-sm"> 
+  <view class="margin-sm">
     <view class="cu-form-group">
-      <textarea maxlength="240"  bindinput="textareaAInput"
-        placeholder="点击编辑我的内心独白" data-field="signature" bindinput="input"></textarea>
+      <textarea maxlength="240" bindinput="input" placeholder="点击编辑我的内心独白" data-field="signature"></textarea>
     </view>
     <view class="cu-form-group">
-		<view class="title">主页显示我的形象</view>
-		<switch class="blue radius sm" checked="{{showMe}}"></switch>
-  </view>
-  <view class="cu-form-group">
-		<view class="title">可通过编号搜索到我</view>
-    <switch class="blue radius sm" checked="{{searchAble}}"></switch>
-     </view>
-  <view class="cu-form-group">
-		<view class="title">介绍人</view>
-		<input placeholder="介绍人电话/编号" data-field="introducer" bindinput="input"></input>
-	</view>
+      <view class="title">主页显示我的形象</view>
+      <switch class="blue radius sm" checked="{{showMe}}"></switch>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">可通过编号搜索到我</view>
+      <switch class="blue radius sm" checked="{{searchAble}}"></switch>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">介绍人</view>
+      <input placeholder="介绍人电话/编号" data-field="introducer" bindinput="input" />
+    </view>
     <view class="cu-bar btn-group margin-top">
-    <button class="cu-btn bg-blue shadow-blur round">保存</button>
-    <button class="cu-btn text-blue line-blue shadow">我已脱单</button>
+      <button class="cu-btn bg-blue shadow-blur round">保存</button>
+      <button class="cu-btn text-blue line-blue shadow">我已脱单</button>
+    </view>
   </view>
-  </view>
-  
 </view>

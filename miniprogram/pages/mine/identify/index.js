@@ -1,85 +1,177 @@
-var app = getApp()
+var app = getApp();
 Page({
   data: {
-    idFront:'',//身份证正面
-    idBack:'',//身份证反面
-    mainPic:'',//主图
-    realName:'',//姓名
-    ID:'',//身份证号
-    form:{shiming_shenfen_up:'',shiming_shenfen_back:''}
+    identiFront: "", //身份证正面
+    identiBack: "", //身份证反面
+    identiName: "", //姓名
+    identiId: "", //身份证号
+    identi: 0 // 用户认证状态
   },
   // 从服务器读取，如果有，把上传按钮设置为disable，如果没有，设置为空。如果为空则不能上传
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    this.getUserInfo();
   },
-  // 换照片
-  changeImg() {
-    let that = this;
-    let openid = app.globalData.openid || wx.getStorageSync('openid');
+  // 获取用户信息
+  async getUserInfo() {
+    wx.showLoading({
+      title: "加载中...",
+      mask: true
+    });
+    const { result } = await wx.cloud.callFunction({
+      name: "users",
+      data: {
+        type: "getUserInfo"
+      }
+    });
+    const userInfo = result.data[0];
+    if (userInfo) {
+      const {
+        identiFront,
+        identiBack,
+        identiName,
+        identiId,
+        identi
+      } = userInfo;
+      this.setData({ identiFront, identiBack, identiName, identiId, identi });
+    }
+    wx.hideLoading();
+  },
+  // 姓名输入
+  identiNameInput(e) {
+    this.setData({ identiName: e.detail.value.trim() });
+  },
+  // 身份证号码输入
+  identiIdInput(e) {
+    this.setData({ identiId: e.detail.value.trim() });
+  },
+  // 选择身份证正反面
+  chooseImage(e) {
+    const { isFront } = e.currentTarget.dataset;
+    const tempName = isFront ? "identiFront" : "identiBack";
     wx.chooseImage({
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        wx.showLoading({
-          title: '上传中',
-        });
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        let filePath = res.tempFilePaths[0];
-        const name = Math.random() * 1000000;
-        const cloudPath = name + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,//云存储图片名字
-          filePath,//临时路径
-          success: res => {
-            console.log('[上传图片] 成功：', res)
-            that.setData({
-              e: res.fileID,//云存储图片路径,可以把这个路径存到集合，要用的时候再取出来
-            });
-            let fileID = res.fileID;
-            //把图片存到users集合表
-            const db = wx.cloud.database();
-              db.collection("users").add({
-                data: {
-                  bigImg: fileID
-                },
-                success: function () {
-                  wx.showToast({
-                    title: '图片存储成功',
-                    'icon': 'none',
-                    duration: 3000
-                  })
-                },
-                fail: function () {
-                  wx.showToast({
-                    title: '图片存储失败',
-                    'icon': 'none',
-                    duration: 3000
-                  })
-                }
-              }); 
-          },
-           fail: e => {
-            console.error('[上传图片] 失败：', e)
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
+      count: 1,
+      sizeType: ["original", "compressed"],
+      sourceType: ["album", "camera"],
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePath = res.tempFilePaths[0];
+        this.setData({
+          [tempName]: tempFilePath
         });
       }
-    })
+    });
+  },
+  async save() {
+    this.checkInfo();
+    wx.showLoading({
+      title: "正面照上传中...",
+      mask: true
+    });
+    const { identiFront, identiBack, identiName, identiId } = this.data;
+    const openid = await this.getOpenId();
+    // 上传正面图片，获得云储存fileId
+    const frontFileId = await this.upload(openid, identiFront, true);
+    wx.showLoading({
+      title: "反面照上传中...",
+      mask: true
+    });
+    // 上传反面图片，获得云储存fileId
+    const backFileId = await this.upload(openid, identiBack, false);
+    // 更新user表
+    wx.showLoading({
+      title: "申请认证中...",
+      mask: true
+    });
+    const { errMsg } = await wx.cloud.callFunction({
+      name: "users",
+      data: {
+        type: "updateUserInfo",
+        identiName,
+        identiId,
+        identiFront: frontFileId,
+        identiBack: backFileId
+      }
+    });
+    if (errMsg === "cloud.callFunction:ok") {
+      this.setData({
+        identi: 2
+      });
+    } else {
+      wx.showToast({
+        title: "申请认证失败，请重新认证",
+        icon: "none"
+      });
+    }
+    wx.hideLoading();
+    console.log(556644, errMsg);
   },
 
-  onReady: function () {},
+  // 校验相关数据
+  checkInfo() {
+    const { identiFront, identiBack, identiName, identiId } = this.data;
+    if (!identiName) {
+      wx.showToast({ title: "请输入证件姓名", icon: "none" });
+      throw new Error("请输入证件姓名");
+    }
+    if (!identiId) {
+      wx.showToast({ title: "请输入证件号码", icon: "none" });
+      throw new Error("请输入证件号码");
+    }
+    if (identiId && identiId.length !== 18) {
+      wx.showToast({ title: "请输入正确的证件号码", icon: "none" });
+      throw new Error("请输入正确的证件号码");
+    }
+    if (!identiFront) {
+      wx.showToast({ title: "请上传身份证正面照", icon: "none" });
+      throw new Error("请上传身份证正面照");
+    }
+    if (!identiBack) {
+      wx.showToast({ title: "请上传身份证反面照", icon: "none" });
+      throw new Error("请上传身份证反面照");
+    }
+  },
 
-  onShow: function () {},
+  // 上传文件
+  async upload(openid, filePath, isFront) {
+    const suffix = this.getImageSuffix(filePath);
+    const { fileID } = await wx.cloud.uploadFile({
+      cloudPath:
+        "identi_image/" + openid + "/" + (isFront ? "front" : "back") + suffix, // 云储存上的路径
+      filePath // 文件临时路径
+    });
+    return fileID;
+  },
 
-  onHide: function () {},
+  // 获取openid
+  async getOpenId() {
+    const { result } = await wx.cloud.callFunction({
+      name: "utils",
+      data: {
+        type: "getOpenid"
+      }
+    });
+    console.log("getOpenid", result);
 
-  onUnload: function () {},
+    return result;
+  },
 
-  onPullDownRefresh: function () {},
+  // 获取图片后缀
+  getImageSuffix(filePath) {
+    const index = filePath.lastIndexOf(".");
+    return filePath.substr(index);
+  },
 
-  onReachBottom: function () {},
+  onReady: function() {},
 
-  onShareAppMessage: function () {}
-})
+  onShow: function() {},
+
+  onHide: function() {},
+
+  onUnload: function() {},
+
+  onPullDownRefresh: function() {},
+
+  onReachBottom: function() {},
+
+  onShareAppMessage: function() {}
+});

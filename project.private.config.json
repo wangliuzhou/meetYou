@@ -89,6 +89,11 @@
           "pathName": "pages/mine/index",
           "query": "id=0001",
           "scene": null
+        },
+        {
+          "name": "pages/mine/identify/index",
+          "pathName": "pages/mine/identify/index",
+          "scene": null
         }
       ]
     }

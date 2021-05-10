@@ -1,21 +1,23 @@
 var app = getApp();
-var config = require('../../config')
-Page({
+var config = require("../../config");
+import { shareAct, onUserOpenApp } from "./../../utils/share";
 
+Page({
   data: {
     show_detail: false,
     show_rule: false,
     show_path: false,
     return_rate: 70,
-    act: '',
-    discount:''
+    act: "",
+    discount: ""
   },
 
-  onLoad: function (options) {
-   this.setData({
-    act:app.temp,
-    discount:Math.round(app.temp.real_cost*100/app.temp.cost)/10
-   })
+  onLoad: function(options) {
+    onUserOpenApp(options);
+    this.setData({
+      act: app.temp,
+      discount: Math.round((app.temp.real_cost * 100) / app.temp.cost) / 10
+    });
     // if (success) {
     //   this.setData({
     //     act,
@@ -27,29 +29,34 @@ Page({
   showRule() {
     this.setData({
       show_rule: !this.data.show_rule
-    })
+    });
   },
   showDetail() {
     this.setData({
       show_detail: !this.data.show_detail
-    })
+    });
   },
   showPath() {
     this.setData({
       show_path: !this.data.show_path
-    })
+    });
   },
-  onReady: function () {},
+  onReady: function() {},
 
-  onShow: function () {},
+  onShow: function() {
+    var obj = wx.getLaunchOptionsSync();
+    console.log(obj);
+  },
 
-  onHide: function () {},
+  onHide: function() {},
 
-  onUnload: function () {},
+  onUnload: function() {},
 
-  onPullDownRefresh: function () {},
+  onPullDownRefresh: function() {},
 
-  onReachBottom: function () {},
+  onReachBottom: function() {},
 
-  onShareAppMessage: function () {}
-})
+  onShareAppMessage: async function(options) {
+    return shareAct("/pages/act_detail/index");
+  }
+});
