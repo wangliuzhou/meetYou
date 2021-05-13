@@ -30,7 +30,7 @@ export const shareAct = async path => {
 export const onUserOpenApp = async options => {
   const { sn, openid, create_time } = options;
   if (!openid || !create_time) return;
-  const { result } = await wx.cloud.callFunction({
+  await wx.cloud.callFunction({
     name: "share",
     data: {
       type: "onUserOpenApp",

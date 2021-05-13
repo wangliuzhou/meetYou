@@ -1,4 +1,4 @@
-import { shareMyCard } from "../../../utils/share";
+import { shareAct, shareMyCard } from "../../../utils/share";
 
 function i(i, e, n) {
   return (
@@ -87,5 +87,7 @@ Page({
 
   onReachBottom: function() {},
 
-  onShareAppMessage: function() {}
+  onShareAppMessage: function() {
+    return shareAct("/pages/index/index");
+  }
 });

@@ -19,13 +19,13 @@
     </view>
   </view>
 <scroll-view scroll-x="true" style=" white-space: nowrap; " enable-flex="true" class="bg-white">
-<view  wx:for="{{new_user}}" wx:key="index" class=" margin-left-sx" style="width: 80px; height: 100px; display: inline-block">
+  <view  wx:for="{{new_user}}" wx:key="index" class=" margin-left-sx" style="width: 80px; height: 100px; display: inline-block">
     <view bindtap="showUserDetail" class="padding-sm">
       <view class="cu-avatar round lg margin-xxs">
 				<image src="{{item.wxUserInfo.avatarUrl}}" class="cu-avatar round lg"></image>
-               <view class="cu-tag badge {{item.wxUserInfo.gender==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+        <view class="cu-tag badge {{item.wxUserInfo.gender==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
       </view>
-      <view style="font-size:26rpx;color:#333;margin-top:10rpx;text-align:center;">{{item.userCode}}</view>
+      <view style="font-size:26rpx;color:#333;margin-top:10rpx;text-align:center;">{{item.userCode||'佚名'}}</view>
     </view>
   </view>
 </scroll-view>

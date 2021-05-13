@@ -32,11 +32,11 @@
         <view class="title">个人展示</view>
         <view data-page="mine/personal" bindtap="goPage" class="foot">去完善</view>
       </view>
-      <view class="info-label-list" wx:if="{{baseArr.length>0}}">
+      <!-- <view class="info-label-list" wx:if="{{baseArr.length>0}}">
         <view class="label-item" wx:if="{{item!=''}}" wx:for="{{baseArr}}" wx:key="index">
           {{item}}
         </view>
-      </view>
+      </view> -->
     </view>
     <view class="block-wrap">
       <view class="title-wrap">

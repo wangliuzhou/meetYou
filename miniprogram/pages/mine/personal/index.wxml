@@ -9,7 +9,7 @@
       <!-- last-child选择器-->
     </view>
     <view class="action">
-      <button class="cu-btn bg-myColor round" bindtap="shareMyCard">分享我的名片</button>
+      <button class="cu-btn bg-myColor round" open-type="share">分享我的名片</button>
     </view>
   </view>
   <view class="cu-card case {{isCard?'no-card':''}}">
@@ -49,7 +49,7 @@
   </view>
   <view class="cu-bar btn-group bg-white">
     <button class="cu-btn bg-blue shadow-blur" bindtap="chooseImage">上传展示照</button>
-    <button class="cu-btn text-blue line-blue shadow">二维码名片</button>
+    <button class="cu-btn text-blue line-blue shadow" bindtap="shareMyCard">二维码名片</button>
   </view>
   <view class="cu-bar bg-white">
     <view class="action">
