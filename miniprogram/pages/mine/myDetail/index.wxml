@@ -1,184 +1,187 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-	<view slot="content">会员基本信息</view>
+ <view slot="content">会员基本信息</view>
 </cu-custom>
-<form>
-	<view class="cu-form-group">
-		<view class="title">姓名</view>
-		<input placeholder="请填入真实姓名" confirm-type="done" maxlength="8" data-field="name" bindinput="input"></input>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">性别</view>
-		<radio-group class="block" bindchange='sexChange'>
-		男 <radio class="blue" value="1" checked="{{boy}}"></radio>
-		女 <radio class="red" value="2" checked="{{gril}}"></radio>
-	</radio-group>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">手机</view>
-		<input placeholder="你的手机号码" type="number" data-field="cellphone" bindinput="input"></input>
-		<view class="cu-capsule radius">
-			<view class="cu-tag bg-blue">+86</view><view class="cu-tag line-blue">中国大陆</view>
-		</view></view>
-	<view class="cu-form-group">
-		<view class="title">微信号</view>
-		<input placeholder="您的微信账号或绑定的手机号" name="wechat" data-field="wechat" bindinput="input"></input>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">其他联系方式</view>
-		<input placeholder="QQ或邮件" data-field="contact_info" bindinput="input"></input>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">您的芝麻信用分</view>
-		<input placeholder="没填会被认为0" type="number" data-field="sesameCredit" bindinput="input"></input>	
-	</view>
-	<view class="cu-form-group">
-		<view class="title">生日</view>
-		<picker mode="date" value="{{form_base.birthday}}" start="1970-01-01" end="2020-01-01" bindchange="modify_func"
-		data-field="birthday">
-		<view class="picker">
-			{{form_base.birthday==null?'请选择':form_base.birthday}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-	<view class="title">身高（cm）</view>
-	<picker mode="selector" bindchange="modify_func" data-field="hight_index" value="{{form_base.hight_index}}"
-		range="{{base.hight_Arr}}">
-		<view class="picker">
-			{{form_base.hight_index==null?'请选择':base.hight_Arr[form_base.hight_index]}}
-		</view>
-	</picker>
+
+<!--<form>-->
+ <view class="cu-form-group">
+  <view class="title">姓名</view>
+  <input placeholder="请填入真实姓名" confirm-type="done" maxlength="8" data-field="name" bindinput="modify_func" value='{{form.name}}'/>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">性别</view>
+  <!--bindchange='sexChange'-->
+  <radio-group class="block"  data-field='sex'  bindchange="modify_func" value='{{form.sex}}'>
+  男 <radio class="blue" value="{{1}}" checked='{{form.sex==1}}'></radio>
+  女 <radio class="red" value="{{0}}" checked='{{form.sex==0}}'></radio>
+ </radio-group >
+ </view>
+ <view class="cu-form-group">
+  <view class="title">手机</view>
+  <input placeholder="你的手机号码" type="number" data-field="cellphone" bindinput="modify_func" maxLength='{{11}}' value='{{form.cellphone}}'/>
+  <view class="cu-capsule radius">
+   <view class="cu-tag bg-blue">+86</view><view class="cu-tag line-blue">中国大陆</view>
+  </view></view>
+ <view class="cu-form-group">
+  <view class="title">微信号</view>
+  <input placeholder="您的微信账号或绑定的手机号" data-field="wechat" bindinput="modify_func" value='{{form.wechat}}'/>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">其他联系方式</view>
+  <input placeholder="QQ或邮件" data-field="contact_info" bindinput="modify_func" value='{{form.contact_info}}'/>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">您的芝麻信用分</view>
+  <input placeholder="没填会被认为0" type="number" data-field="sesameCredit" bindinput="modify_func" value='{{form.sesameCredit}}'/> 
+ </view>
+ <view class="cu-form-group">
+  <view class="title">生日</view>
+  <picker mode="date" value="{{form.birthday}}" start="1970-01-01" end="2020-01-01" bindchange="modify_func"
+  data-field="birthday">
+  <view class="picker">
+   {{form.birthday||'请选择'}}
+  </view>
+ </picker>
+ </view>
+ <view class="cu-form-group">
+ <view class="title">身高（cm）</view>
+ <picker bindchange="modify_func" data-field="hight_index" value="{{form.hight_index}}"
+  range="{{base.hight_Arr}}">
+  <view class="picker">
+   {{base.hight_Arr[form.hight_index]||'请选择'}}
+  </view>
+ </picker>
 </view>
 <view class="cu-form-group">
-	<view class="title">体重（斤）</view>
-	<picker mode="selector" bindchange="modify_func" data-field="weight_index" value="{{form.weight_index}}"
-		range="{{base.weight_Arr}}">
-		<view class="picker">
-			{{form_base.weight_index==null?'请选择':base.weight_Arr[form_base.weight_index]}}
-		</view>
-	</picker>
+ <view class="title">体重（斤）</view>
+ <picker  bindchange="modify_func" data-field="weight_index" value="{{form.weight_index}}"
+  range="{{base.weight_Arr}}">
+  <view class="picker">
+   {{base.weight_Arr[form.weight_index]||'请选择'}}
+  </view>
+ </picker>
 </view>
-	<view class="cu-form-group">
-		<view class="title">籍贯</view>
-		<picker mode="region" bindchange="modify_func" value="{{form_base.region}}">
-		<view class="picker" data-field="region">
-			{{form_base.region[0]}}，{{form_base.region[1]}}，{{form_base.region[2]}}
-		</view>
-	</picker>
-	</view>
-		<view class="cu-form-group">
-		<view class="title">所在区域</view>
-		<picker bindchange="modify_func" value="{{form_base.location_index}}" range="{{base.location_Arr}}"
-		data-field="location_index">
-		<view class="picker">
-			{{form_base.location_index==null?'请选择':base.location_Arr[form_base.location_index]}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">您的学历</view>
-		<picker mode="selector" bindchange="modify_func" value="{{form_base.eduction_index}}" range="{{base.education_Arr}}"
-		data-field="eduction_index">
-		<view class="picker">
-			{{form_base.eduction_index==null?'请选择':base.education_Arr[form_base.eduction_index]}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">工作性质</view>
-		<picker mode="selector" bindchange="modify_func" value="{{form_base.work_type_index}}" range="{{base.work_type_Arr}}"
-		data-field="work_type_index">
-		<view class="picker">
-			{{form_base.work_type_index==null?'请选择':base.work_type_Arr[form_base.work_type_index]}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">年收入（单位万）</view>
-	<input placeholder="5w以下的要多多努力了" type="number" data-field="income" bindinput="input"></input>
-	</view>
-	<view class="cu-form-group">
-	<view class="title">个人资产（单位万）</view>
-	<input placeholder="包含名下车房" type="number" data-field="wealth" bindinput="input"></input>
+ <view class="cu-form-group">
+  <view class="title">籍贯</view>
+  <picker mode="region" bindchange="modify_func" value="{{form.region}}" data-field="region">
+   <view class="picker" >
+    {{form.region[0]}}，{{form.region[1]}}，{{form.region[2]}}
+   </view>
+  </picker>
+ </view>
+  <view class="cu-form-group">
+  <view class="title">所在区域</view>
+  <picker mode="region" bindchange="modify_func" value="{{form.location}}" data-field="location">
+   <view class="picker">
+    {{form.location[0]}}，{{form.location[1]}}，{{form.location[2]}}
+   </view>
+  </picker>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">您的学历</view>
+  <picker  bindchange="modify_func" value="{{form.eduction_index}}" range="{{base.education_Arr}}"
+   data-field="eduction_index">
+   <view class="picker">
+    {{base.education_Arr[form.eduction_index] || '请选择'}}
+   </view>
+  </picker>
+ </view>
+<view class="cu-form-group">
+  <view class="title">工作性质</view>
+  <picker  bindchange="modify_func" value="{{form.work_type_index}}" range="{{base.work_type_Arr}}"
+  data-field="work_type_index">
+  <view class="picker">
+   {{base.work_type_Arr[form.work_type_index]||'请选择'}}
+  </view>
+ </picker>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">年收入（单位万）</view>
+ <input placeholder="5w以下的要多多努力了" type="number" data-field="income" bindinput="modify_func" value='{{form.income}}'/>
+ </view>
+ <view class="cu-form-group">
+ <view class="title">个人资产（单位万）</view>
+ <input placeholder="包含名下车房" type="number" data-field="wealth" bindinput="modify_func"  value='{{form.wealth}}'/>
 </view>
 <view class="cu-form-group">
-	<view class="title">家庭资产（单位万）</view>
-	<input placeholder="没填会降低您的评分" type="number" data-field="family_wealth" bindinput="input"></input>
+ <view class="title">家庭资产（单位万）</view>
+ <input placeholder="没填会降低您的评分" type="number" data-field="family_wealth" bindinput="modify_func" value='{{form.family_wealth}}'/>
 </view>
-	<view class="cu-form-group">
-		<view class="title">名下房产</view>
-		<picker mode="selector" bindchange="modify_func" value="{{form_base.real_estate_index}}"
-		range="{{base.real_estate_Arr}}" data-field="real_estate_index">
-		<view class="picker">
-			{{form_base.real_estate_index==null?'请选择':base.real_estate_Arr[form_base.real_estate_index]}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">婚姻状态</view>
-		<picker mode="selector" bindchange="modify_func" value="{{form_base.marry_index}}" range="{{base.marry_Arr}}"
-		data-field="marry_index">
-		<view class="picker">
-			{{form_base.marry_index==null?'请选择':base.marry_Arr[form_base.marry_index]}}
-		</view>
-	</picker>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">家庭成员</view>
-	<view class="action">
-		<button class="cu-btn bg-myColor shadow" bindtap="showModalFamily" data-target="ChooseModal">选择成员</button>
-	</view>
-	</view>
-	<view class="cu-form-group">
-		<view class="title">您的才艺（必要的时候能展示）</view>
-		<view class="action">
-		<button class="cu-btn bg-myColor shadow" bindtap="showModalTelents" data-target="ChooseModal">选择才艺</button>
-	</view>
-	</view>	
-	<view class="cu-form-group">
-		<view class="title">是否有以下爱好</view><checkbox-group bindchange='habitsChange'>
-			<!-- detail = {value:[选中的checkbox的value的数组]} -->
-			<label class="" wx:for="{{base.habits_Arr}}" wx:key="{{item.value}}">
-				{{item.name}}<checkbox class="grey" value="{{item.value}}" checked="{{item.checked}}"></checkbox></label></checkbox-group>
-	</view>	
-	<view class="cu-form-group">
-		<view class="title">有否犯罪记录</view>
-		<radio-group class="block" bindchange='CrimeChange'>
-		有 <radio class="blue" value="1" checked="{{boy}}"></radio>
-		木有 <radio class="red" value="2" checked="{{gril}}"></radio>
-	</radio-group>
-	</view>	
-</form>
-<view class="flex margin-tb justify-center align-center"><text class="text-gray text-sm">本人郑重承诺：以上资料真实有效。</text>
-		<checkbox class=""></checkbox></view>
-<view class="padding margin-bottom-lg">
-	<button class="cu-btn block bg-blue " disabled="" type="">提交</button>
-</view>
+ <view class="cu-form-group">
+  <view class="title">名下房产</view>
+  <picker  bindchange="modify_func" value="{{form.real_estate_index}}"
+  range="{{base.real_estate_Arr}}" data-field="real_estate_index">
+  <view class="picker">
+   {{base.real_estate_Arr[form.real_estate_index]||'请选择'}}
+  </view>
+ </picker>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">婚姻状态</view>
+  <picker  bindchange="modify_func" value="{{form.marry_index}}" range="{{base.marry_Arr}}"
+  data-field="marry_index">
+  <view class="picker">
+   {{base.marry_Arr[form.marry_index]||'请选择'}}
+  </view>
+ </picker>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">家庭成员</view>
+  <view class="action">
+   <button class="cu-btn bg-myColor shadow" bindtap="showModalFamily">选择成员</button>
+  </view>
+ </view>
+ <view class="cu-form-group">
+  <view class="title">您的才艺（必要的时候能展示）</view>
+  <view class="action">
+  <button class="cu-btn bg-myColor shadow" bindtap="showModalTelents">选择才艺</button>
+ </view>
+ </view> 
+ <view class="cu-form-group">
+  <view class="title">是否有以下爱好</view>
+  <checkbox-group bindchange='habitsChange' value='{{form.habits}}'>
+   <label class="" wx:for="{{base.habits_Arr}}" wx:key="value">
+    {{item.name}}
+    <checkbox class="grey" value="{{item.value}}" checked="{{item.checked}}"></checkbox>
+   </label>
+  </checkbox-group>
+ </view> 
+ <view class="cu-form-group">
+  <view class="title">有否犯罪记录</view>
+  <radio-group class="block" bindchange='modify_func' value='{{form.crime}}' data-field="crime">
+  有 <radio class="blue" value="1" checked="{{form.crime==1}}"></radio>
+  木有 <radio class="red" value="2" checked="{{form.crime==2}}"></radio>
+ </radio-group>
+ </view>
+ <!--</form>-->
+ <view class="flex margin-tb justify-center align-center"><text class="text-gray text-sm">本人郑重承诺：以上资料真实有效。</text>
+  <checkbox  checked='{{!!form.myPromise}}' bindtap='toogleMyPromise' value='{{!!form.myPromise}}'></checkbox></view>
+ <view class="padding margin-bottom-lg">
+  <button class="cu-btn block bg-blue " bindtap="submitForm">提交</button>
+ </view>
 <view class="cu-modal bottom-modal show" hidden='{{!choseFamily}}'>
-		<view class="cu-dialog">
-			<view class="cu-bar bg-white">
-				<view class="action text-red" bindtap="showModalFamily">取消</view>
-				<view class="action text-blue" bindtap="showModalFamily">确定</view>
-			</view>
-			<view class="grid col-3 padding-sm">
-				<view wx:for="{{base.family_member_Arr}}" class="padding-xs" wx:key="index">
-					<button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="ChooseCheckbox"
-						data-value="{{item.value}}" data-field1="form_base" data-field2='family_member_Arr'>{{item.name}}</button>
-				</view>
-			</view>
-		</view>
-	</view>
-	<view class="cu-modal bottom-modal show" hidden='{{!choseTelents}}'>
-		<view class="cu-dialog">
-			<view class="cu-bar bg-white">
-				<view class="action text-red" bindtap="showModalTelents">取消</view>
-				<view class="action text-blue" bindtap="showModalTelents">确定</view>
-			</view>
-			<view class="grid col-1 padding-sm">
-				<view wx:for="{{form_base.telents_Arr}}" class="padding-xs" wx:key="index">
-					<button class="cu-btn orange lg block {{item.checked?'bg-myColor':'line-myColor'}}" bindtap="ChooseCheckbox"
-						data-value="{{item.value}}" data-field1="form_base" data-field2='telents_Arr'>{{item.name}}</button>
-				</view>
-			</view>
-		</view>
-	</view>
+ <view class="cu-dialog">
+  <view class="cu-bar bg-white">
+   <view class="action text-red" bindtap="cancelChoose" data-cancel-choose-type='{{0}}'>取消</view>
+   <view class="action text-blue" bindtap="confirmChoose" data-cancel-choose-type='{{0}}'>确定</view>
+  </view>
+  <view class="grid col-3 padding-sm">
+   <view wx:for="{{base.family_member_Arr}}" class="padding-xs" wx:key="value">
+    <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="chooseCheckbox" data-index="{{index}}" data-cancel-choose-type='{{0}}'>{{item.name}}</button>
+   </view>
+  </view>
+ </view>
+</view>
+<view class="cu-modal bottom-modal show" hidden='{{!choseTelents}}'>
+  <view class="cu-dialog">
+   <view class="cu-bar bg-white">
+    <view class="action text-red" bindtap="cancelChoose" data-cancel-choose-type='{{1}}'>取消</view>
+    <view class="action text-blue" bindtap="confirmChoose" data-cancel-choose-type='{{1}}'>确定</view>
+   </view>
+   <view class="grid col-1 padding-sm">
+    <view wx:for="{{base.telents_Arr}}" class="padding-xs" wx:key="index">
+     <button class="cu-btn orange lg block {{item.checked?'bg-myColor':'line-myColor'}}" bindtap="chooseCheckbox"
+      data-index="{{index}}" data-cancel-choose-type='{{1}}'>{{item.name}}</button>
+    </view>
+   </view>
+  </view>
+ </view>

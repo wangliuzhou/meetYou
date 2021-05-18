@@ -1,156 +1,152 @@
 <cu-custom bgcolor="bg-gradual-blue" isCustom="{{true}}">
-  <view slot="content">活动详情</view>
+	<view slot="content">活动详情</view>
 </cu-custom>
-<view
-  class="bg-img padding-tb-xl"
-  style="background-image: url('../../images/11.jpg');height: 400rpx;"
->
-  <view class="flex margin-xl text-xxl text-shadow justify-center">
-    <text class="text-pink text-bold">随机抽选活动</text>
-  </view>
-  <view class="flex padding-xxs justify-center bg-blue light">
-    <text class="text-black">
+<view class="bg-img padding-tb-xl" style="background-image: url('../../images/11.jpg');height: 400rpx;">
+	<view class="flex margin-xl text-xxl text-shadow justify-center">
+		<text class="text-pink text-bold">随机抽选活动</text>
+	</view>
+	<view class="flex padding-xxs justify-center bg-blue light">
+		<text class="text-black">
       活动已完成
-      <text class="text-red text-lg text-bold">{{random_finish_num}}</text>期，共
-      <text class="text-red text-bold text-lg">{{random_finish_person}}</text>人已参与
-    </text>
-  </view>
+      <text class="text-red text-lg text-bold">{{random.pass_no}}</text>期，共
+		<text class="text-red text-bold text-lg">{{random.total_person}}</text>人已参与
+		</text>
+	</view>
 </view>
 
 <view class="cu-list menu margin-top-xs">
-  <view class="cu-item">
-    <view class="content">
-      <text class="cuIcon-friend text-red"></text>
-      <text class="text-grey">报名预约人数：</text>
-    </view>
-    <view class="action">
-      <text class="text-bold">男：{{boys}}；女：{{girls}}</text>
-    </view>
-  </view>
-  <view class="cu-list menu">
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-rechargefill text-blue"></text>
-        <text class="text-grey">费用：</text>
-      </view>
-      <view class="action">
-        <text class="text-red text-bold text-lg text-price margin-right-sm">19.9</text>
-        <text class="text-grey text-price margin-right-sm" style="text-decoration:line-through;">100</text>
-        <view class="cu-tag line-yellow round">{{discount}}折</view>
-      </view>
-    </view>
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-roundcheckfill text-purple"></text>
-        <text class="text-grey">费用包含</text>
-      </view>
-      <view class="action">
-        <view class="cu-tag round bg-blue light">小吃</view>
-        <view class="cu-tag round bg-blue light">饮料</view>
-        <view class="cu-tag round bg-blue light">道具</view>
-        <view class="cu-tag round bg-blue light">场地</view>
-        <view class="cu-tag round bg-blue light">主持</view>
-      </view>
-    </view>
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-weixin text-green"></text>
-        <text class="text-grey">活动管理员：</text>
-      </view>
-      <view class="action">
-        <text class="text-grey">这怎么可能告诉你！</text>
-      </view>
-    </view>
+	<view class="cu-item">
+		<view class="content">
+			<text class="cuIcon-friend text-red"></text>
+			<text class="text-grey">报名预约人数：</text>
+		</view>
+		<view class="action">
+			<text class="text-bold">男：{{random.boy}}；女：{{random.girl}}</text>
+		</view>
+	</view>
+	<view class="cu-list menu">
+		<view class="cu-item">
+			<view class="content">
+				<text class="cuIcon-rechargefill text-blue"></text>
+				<text class="text-grey">费用：</text>
+			</view>
+			<view class="action">
+				<text class="text-red text-bold text-lg text-price margin-right-sm">{{random.real_cost}}</text>
+				<text class="text-grey text-price margin-right-sm" style="text-decoration:line-through;">{{random.cost}}</text>
+				<view class="cu-tag line-yellow round">{{discount}}折</view>
+			</view>
+		</view>
+		<view class="cu-item">
+			<view class="content">
+				<text class="cuIcon-roundcheckfill text-purple"></text>
+				<text class="text-grey">费用包含</text>
+			</view>
+			<view class="action">
+				<view class="cu-tag round bg-blue light">小吃</view>
+				<view class="cu-tag round bg-blue light">饮料</view>
+				<view class="cu-tag round bg-blue light">道具</view>
+				<view class="cu-tag round bg-blue light">场地</view>
+				<view class="cu-tag round bg-blue light">主持</view>
+			</view>
+		</view>
+		<view class="cu-item">
+			<view class="content">
+				<text class="cuIcon-weixin text-green"></text>
+				<text class="text-grey">活动管理员：</text>
+			</view>
+			<view class="action">
+				<text class="text-grey">这怎么可能告诉你！</text>
+			</view>
+		</view>
 
-    <view class="cu-item">
-      <view class="content">
-        <text class="cuIcon-share text-green"></text>
-        <text class="text-grey">分享活动，让更多人参加</text>
-      </view>
-      <view class="action">
-        <button class="cu-btn round bg-green shadow" open-type="share">
-          <text class="cuIcon-upload"></text>分享给好友
-        </button>
-      </view>
-    </view>
-  </view>
+		<view class="cu-item">
+			<view class="content">
+				<text class="cuIcon-share text-green"></text>
+				<text class="text-grey">分享活动，让更多人参加</text>
+			</view>
+			<view class="action">
+				<button class="cu-btn round bg-green shadow" open-type="share">
+					<text class="cuIcon-upload"></text>分享给好友
+				</button>
+			</view>
+		</view>
+	</view>
 </view>
 <view class="cu-bar bg-white solid-bottom margin-top-xs">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>规则和注意事项（必看）
-  </view>
+	<view class="action">
+		<text class="cuIcon-title text-blue"></text>规则和注意事项（必看）
+	</view>
 </view>
 <view class="padding-sm bg-white">
-  <text class="text-grey" user-select="false">1、报名成功后，您自动进入候选队列。</text>
-  <text class="text-grey" user-select="false">2、您可以多次购买，同时会增加被抽到几率。</text>
-  <text class="text-grey" user-select="false">3、随机活动不定期举行。（基本人数到了就进行）</text>
-  <text class="text-grey" user-select="false">4、活动地点和时间会提前告知您，您可选择放弃参加。</text>
-  <text class="text-grey" user-select="false">5、随机活动的人数随机，男女比例约1：1</text>
-  <text class="text-red" user-select="false">6、随机活动不支持退款，请慎重考虑后参加。</text>
-  <text class="text-red" user-select="false">7、三次被抽取，又选择放弃参加，将被视为放弃活动，费用不退。</text>
-  <text class="text-gray" user-select="false">8、最终解释权归本机构所有，参加活动即代表认可此规则。</text>
+	<text class="text-grey" user-select="false">1、报名成功后，您自动进入候选队列。</text>
+	<text class="text-grey" user-select="false">2、您可以多次购买，同时会增加被抽到几率。</text>
+	<text class="text-grey" user-select="false">3、随机活动不定期举行。（基本人数到了就进行）</text>
+	<text class="text-grey" user-select="false">4、活动地点和时间会提前告知您，您可选择放弃参加。</text>
+	<text class="text-grey" user-select="false">5、随机活动的人数随机，男女比例约1：1</text>
+	<text class="text-red" user-select="false">6、随机活动不支持退款，请慎重考虑后参加。</text>
+	<text class="text-red" user-select="false">7、三次被抽取，又选择放弃参加，将被视为放弃活动，费用不退。</text>
+	<text class="text-gray" user-select="false">8、最终解释权归本机构所有，参加活动即代表认可此规则。</text>
 </view>
 <view class="cu-bar bg-white solid-bottom margin-top-xs">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>流程
-  </view>
-  <view class="action" bindtap="showPath">
-    <text class="cuIcon-{{show_path?'fold':'unfold'}} text-blue"></text>
-  </view>
+	<view class="action">
+		<text class="cuIcon-title text-blue"></text>流程
+	</view>
+	<view class="action" bindtap="showPath">
+		<text class="cuIcon-{{show_path?'fold':'unfold'}} text-blue"></text>
+	</view>
 </view>
 <view class="padding-sm bg-white" wx:if="{{show_path}}">
-  <view class="cu-timeline">
-    <view class="cu-item">
-      <view class="content">报名成功后，您自动进入侯选池。请加活动管理员微信。</view>
-    </view>
-    <view class="cu-item">
-      <view class="content bg-yellow shadow-blur">您被随机抽中后，工作人员会提前48小时联系您，告知您活动时间地点。您可决定是否有空参加。</view>
-    </view>
-    <view class="cu-item">
-      <view class="content bg-red shadow-blur">确认后会把你拉到群里（此时就不能退出了）。</view>
-    </view>
-    <view class="cu-item">
-      <view class="content">负责人在群里公布群规则/活动详细时间和地点。随后主持人加群。如有疑问，请在群内询问。</view>
-    </view>
-  </view>
+	<view class="cu-timeline">
+		<view class="cu-item">
+			<view class="content">报名成功后，您自动进入侯选池。请加活动管理员微信。</view>
+		</view>
+		<view class="cu-item">
+			<view class="content bg-yellow shadow-blur">您被随机抽中后，工作人员会提前48小时联系您，告知您活动时间地点。您可决定是否有空参加。</view>
+		</view>
+		<view class="cu-item">
+			<view class="content bg-red shadow-blur">确认后会把你拉到群里（此时就不能退出了）。</view>
+		</view>
+		<view class="cu-item">
+			<view class="content">负责人在群里公布群规则/活动详细时间和地点。随后主持人加群。如有疑问，请在群内询问。</view>
+		</view>
+	</view>
 </view>
 
 <view class="padding flex flex-direction">
-  <button class="cu-btn bg-blue margin-tb-sm lg">我要报名</button>
+	<button class="cu-btn bg-blue margin-tb-sm lg" bindtap="signIn">我要报名</button>
 </view>
 <view class="cu-bar bg-white solid-bottom margin-top-xs">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>评价
-  </view>
-  <view class="action" bindtap>
-    <text class="cuIcon-{{show_path?'fold':'unfold'}} text-blue"></text>
-  </view>
+	<view class="action">
+		<text class="cuIcon-title text-blue"></text>评价
+	</view>
+	<view class="action">
+		<text class="cuIcon-{{show_path?'fold':'unfold'}} text-blue"></text>
+	</view>
 </view>
 <view class="cu-list menu-avatar bg-white">
-  <view class="cu-item">
-    <view
-      class="cu-avatar round"
-      style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"
-    ></view>
-    <view class="content">
-      <view class="text-grey text-sm">
-        东方不败
-        <view class="action">
-          <view class="text-grey">12/30 22:20</view>
-        </view>
-      </view>
-      <view class="text-gray text-sm flex">
-        <text class="text-cut">这个活动很好，希望多多举行。</text>
-      </view>
-    </view>
-  </view>
+	<block wx:for="{{random.comments}}" key='index'>
+		<view class="cu-item">
+			<image class="cu-avatar round" src='{{item.avatarUrl}}' />
+			<view class="content">
+				<view class="text-grey text-sm">
+					{{item.nikeName}}
+					<view class="action">
+						<view class="text-grey"> {{item.createTime}}</view>
+					</view>
+				</view>
+				<view class="text-gray text-sm flex">
+					<text class="text-cut">{{item.comment}}</text>
+				</view>
+			</view>
+		</view>
+	</block>
 </view>
 <view class="margin">
-  <view class="cu-form-group">
-    <textarea maxlength="240" bindinput="textareaAInput" placeholder="评轮这个活动"></textarea>
-  </view>
-  <text class="text-sm text-red">*您的评论所有人都可见。</text>
-  <view class="padding flex flex-direction margin-sm">
-    <button class="cu-btn bg-blue lg">提交评论</button>
-  </view>
+	<view class="cu-form-group">
+		<textarea maxlength="240" bindinput="textareaAInput" placeholder="评轮这个活动"></textarea>
+	</view>
+	<text class="text-sm text-red">*您的评论所有人都可见。</text>
+	<view class="padding flex flex-direction margin-sm">
+		<button class="cu-btn bg-blue lg" bindtap='submitComment'>提交评论</button>
+	</view>
 </view>

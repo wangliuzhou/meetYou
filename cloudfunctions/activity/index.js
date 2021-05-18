@@ -1,17 +1,16 @@
-// 云函数入口文件
+// 云函数入口文件
 const cloud = require("wx-server-sdk");
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
 const db = cloud.database();
 const _ = db.command;
 
-// 云函数入口函数
+// 云函数入口函数
 exports.main = async (event, context) => {
-  const { OPENID } = cloud.getWXContext(); // 获取上下文
+  const { OPENID } = cloud.getWXContext(); // 获取上下文
   const { type } = event;
   try {
     if (type === "addComments") {
-      console.log(666999, event);
       const { sn, avatarUrl, nikeName, comment, createTime } = event;
       return await db
         .collection("activity")
@@ -36,17 +35,26 @@ exports.main = async (event, context) => {
             })
           }
         });
-    } else if (type === "addJoinUser") {
-      const sex = event.gender ? "boys" : "girls";
+    } else if (type === "addRandomComments") {
+      const { avatarUrl, nikeName, comment, createTime } = event;
       return await db
-        .collection("activity")
-        .where({
-          sn: event.sn
-        })
+        .collection("info")
+        .doc("random_act")
         .update({
           data: {
-            [sex]: _.push({
-              each: [OPENID]
+            comments: _.push({
+              each: [
+                {
+                  avatarUrl,
+                  nikeName,
+                  comment,
+                  createTime,
+                  openid: OPENID
+                }
+              ],
+              sort: {
+                createTime: -1
+              }
             })
           }
         });

@@ -4,119 +4,109 @@
 <form action="">
 	<view class="cu-form-group">
 		<view class="title">Ta的婚史</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.marry_index_asking}}"
-		range="{{asking.marry_Arr_asking}}" data-field="marry_index_asking">
-		<view class="picker">
-			{{asking.marry_Arr_asking[form_asking.marry_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.marry_index_asking}}" range="{{asking.marry_Arr_asking}}" data-field="marry_index_asking">
+			<view class="picker">
+				{{asking.marry_Arr_asking[form_asking.marry_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta的年龄段</view>
-		<picker mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange"
-		value="{{form_asking.age_index_asking}}" range="{{asking.age_Arr_asking}}" data-field="age_index_asking">
-		<view class="picker">
-			{{asking.age_Arr_asking[0][form_asking.age_index_asking[0]]}}--{{asking.age_Arr_asking[1][form_asking.age_index_asking[1]]}}
-		</view>
-	</picker>
+		<picker mode="multiSelector" bindchange="modify_asking" value="{{form_asking.age_index_asking}}" range="{{asking.age_Arr_asking}}" data-field="age_index_asking">
+			<view class="picker">
+				{{asking.age_Arr_asking[0][form_asking.age_index_asking[0]]}}--{{asking.age_Arr_asking[1][form_asking.age_index_asking[1]]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta的身高</view>
-		<picker mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange"
-		data-field="hight_index_asking" value="{{form_asking.hight_index_asking}}" range="{{asking.hight_Arr_asking}}">
-		<view class="picker">
-			{{asking.hight_Arr_asking[0][form_asking.hight_index_asking[0]]}}--{{asking.hight_Arr_asking[1][form_asking.hight_index_asking[1]]}}
-		</view>
-	</picker>
+		<picker mode="multiSelector" bindchange="modify_asking" data-field="hight_index_asking" value="{{form_asking.hight_index_asking}}" range="{{asking.hight_Arr_asking}}">
+			<view class="picker">
+				{{asking.hight_Arr_asking[0][form_asking.hight_index_asking[0]]}}--{{asking.hight_Arr_asking[1][form_asking.hight_index_asking[1]]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta的体重</view>
-		<picker mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindPickerColumnChange"
-		value="{{form_asking.weight_index_asking}}" range="{{asking.weight_Arr_asking}}" data-field="weight_index_asking">
-		<view class="picker">
-			{{asking.weight_Arr_asking[0][form_asking.weight_index_asking[0]]}}--{{asking.weight_Arr_asking[1][form_asking.weight_index_asking[1]]}}
-		</view>
-	</picker>
+		<picker mode="multiSelector" bindchange="modify_asking" value="{{form_asking.weight_index_asking}}" range="{{asking.weight_Arr_asking}}" data-field="weight_index_asking">
+			<view class="picker">
+				{{asking.weight_Arr_asking[0][form_asking.weight_index_asking[0]]}}--{{asking.weight_Arr_asking[1][form_asking.weight_index_asking[1]]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta的学历</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.education_index_asking}}"
-		range="{{asking.education_Arr_asking}}" data-field="education_index_asking">
-		<view class="picker">
-			{{asking.education_Arr_asking[form_asking.education_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.education_index_asking}}" range="{{asking.education_Arr_asking}}" data-field="education_index_asking">
+			<view class="picker">
+				{{asking.education_Arr_asking[form_asking.education_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta是哪里人</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.reigon_index_asking}}"
-		range="{{asking.reigon_Arr_asking}}" data-field="reigon_index_asking">
-		<view class="picker">
-			{{asking.reigon_Arr_asking[form_asking.reigon_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.reigon_index_asking}}" range="{{asking.reigon_Arr_asking}}" data-field="reigon_index_asking">
+			<view class="picker">
+				{{asking.reigon_Arr_asking[form_asking.reigon_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta年收入</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.income_index_asking}}"
-		range="{{asking.income_Arr_asking}}" data-field="income_index_asking">
-		<view class="picker">
-			{{asking.income_Arr_asking[form_asking.income_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.income_index_asking}}" range="{{asking.income_Arr_asking}}" data-field="income_index_asking">
+			<view class="picker">
+				{{asking.income_Arr_asking[form_asking.income_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta工作性质</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.work_type_index_asking}}"
-		range="{{asking.work_type_Arr_asking}}" data-field="work_type_index_asking">
-		<view class="picker">
-			{{asking.work_type_Arr_asking[form_asking.work_type_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.work_type_index_asking}}" range="{{asking.work_type_Arr_asking}}" data-field="work_type_index_asking">
+			<view class="picker">
+				{{asking.work_type_Arr_asking[form_asking.work_type_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">Ta名下房产</view>
-		<picker mode="selector" bindchange="modify_asking" value="{{form_asking.real_estate_index_asking}}"
-		range="{{asking.real_estate_Arr_asking}}" data-field="real_estate_index_asking">
-		<view class="picker">
-			{{asking.real_estate_Arr_asking[form_asking.real_estate_index_asking]}}
-		</view>
-	</picker>
+		<picker bindchange="modify_asking" value="{{form_asking.real_estate_index_asking}}" range="{{asking.real_estate_Arr_asking}}" data-field="real_estate_index_asking">
+			<view class="picker">
+				{{asking.real_estate_Arr_asking[form_asking.real_estate_index_asking]}}
+			</view>
+		</picker>
 	</view>
 	<view class="cu-form-group">
-	<view class="title">Ta的家庭</view>
-	<picker mode="selector" bindchange="modify_asking" value="{{form_asking.family_member_index_asking}}"
-		range="{{asking.family_member_Arr_asking}}" data-field="family_member_index_asking">
-		<view class="picker">
-			{{asking.family_member_Arr_asking[form_asking.family_member_index_asking]}}
-		</view>
-	</picker>
-</view>
-<view class="cu-form-group">
-	<view class="title">Ta要有的才艺</view>
-	<view class="action">
-		<button class="cu-btn bg-myColor shadow" bindtap="showModalTelentsAsking" data-target="ChooseModal">选择才艺</button>
+		<view class="title">Ta的家庭</view>
+		<picker bindchange="modify_asking" value="{{form_asking.family_member_index_asking}}" range="{{asking.family_member_Arr_asking}}" data-field="family_member_index_asking">
+			<view class="picker">
+				{{asking.family_member_Arr_asking[form_asking.family_member_index_asking]}}
+			</view>
+		</picker>
 	</view>
-</view>
+
+	<view class="cu-form-group">
+		<view class="title">Ta要有的才艺</view>
+		<view class="action">
+			<button class="cu-btn bg-myColor shadow" bindtap="showModalTelentsAsking" data-target="ChooseModal">选择才艺</button>
+		</view>
+	</view>
 	<view class="margin">
-	<view class="cu-form-group">
-    <textarea maxlength="240" bindinput="textareaAInput" placeholder="您的特别要求"></textarea>
-  </view>
-  <view class="padding flex flex-direction margin-sm">
-    <button class="cu-btn bg-blue lg">提交</button>
-  </view>
-</view>
+		<view class="cu-form-group">
+			<textarea maxlength="240" bindinput="modify_asking" placeholder="您的特别要求" data-field="extra_asking" value='{{form_asking.extra_asking}}'></textarea>
+		</view>
+		<view class="padding flex flex-direction margin-sm">
+			<button class="cu-btn bg-blue lg" bindtap="submitForm">提交</button>
+		</view>
+	</view>
 </form>
 <view class="cu-modal bottom-modal show" hidden='{{!askingTelents}}'>
-	<view class="cu-dialog" catchtap>
+	<view class="cu-dialog">
 		<view class="cu-bar bg-white">
-			<view class="action text-red" bindtap="showModalTelentsAsking">取消</view>
-			<view class="action text-blue" bindtap="showModalTelentsAsking">确定</view>
+			<view class="action text-red" bindtap="cancelChoose">取消</view>
+			<view class="action text-blue" bindtap="confirmChoose">确定</view>
 		</view>
 		<view class="grid col-1 padding-sm">
-			<view wx:for="{{form_asking.telents_asking}}" class="padding-xs" wx:key="{{index}}">
-				<button class="cu-btn orange lg block {{item.checked?'bg-myColor':'line-myColor'}}" bindtap="ChooseCheckbox"
-					data-value="{{item.value}}" data-field1="form_asking" data-field2='telents_asking'>{{item.name}}</button>
+			<view wx:for="{{asking.telents_Arr}}" class="padding-xs" wx:key="index">
+				<button class="cu-btn orange lg block {{item.checked?'bg-myColor':'line-myColor'}}" bindtap="chooseCheckbox" data-index="{{index}}">{{item.name}}</button>
 			</view>
 		</view>
 	</view>

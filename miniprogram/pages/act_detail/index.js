@@ -16,8 +16,6 @@ Page({
 
   onLoad: function(options) {
     onUserOpenApp(options);
-    console.log(777, "app.temp", app.temp);
-    console.log(888, app.globalData);
     this.getOpenId();
   },
   async getOpenId() {
@@ -65,6 +63,7 @@ Page({
         sn: this.data.act.sn
       }
     });
+
     if (result.data && result.data[0]) {
       this.setData({
         orderInfo: result.data[0]
@@ -76,7 +75,16 @@ Page({
     if (this.data.orderInfo.status === 1) {
       console.log("去退款");
       // 去退款
-      this.refundOrder();
+      wx.showModal({
+        title: "提示",
+        content: "确认要退款吗",
+        success: result => {
+          if (result.confirm) {
+            this.refundOrder();
+          }
+        }
+      });
+
       return;
     }
     // 去报名
@@ -108,7 +116,8 @@ Page({
         nikeName: app.globalData.wxUserInfo.nikeName,
         act_time,
         place,
-        return_rate
+        return_rate,
+        gender: app.globalData.wxUserInfo.gender
       },
       success: res => {
         const payment = res.result.payment;
@@ -138,15 +147,6 @@ Page({
     this.setData({ act: app.temp });
     // 更新OrderInfo
     this.getOrderInfo();
-    // activity表修改
-    await wx.cloud.callFunction({
-      name: "activity",
-      data: {
-        type: "addJoinUser",
-        gender: app.globalData.wxUserInfo.gender,
-        sn: this.data.act.sn
-      }
-    });
   },
 
   // 让用户订阅消息模板
@@ -160,7 +160,6 @@ Page({
   // 申请退款
   refundOrder() {
     const { orderInfo } = this.data;
-    console.log(753, orderInfo);
     wx.cloud
       .callFunction({
         name: "wxPay",
@@ -178,16 +177,21 @@ Page({
   },
   handleRefundAfter(res) {
     console.log("申请退款", res);
-    const { orderInfo } = this.data;
-    // 修改本地按钮文字
-    orderInfo.status = 2;
-    // 修改本地报名人数
-    const sex = app.globalData.wxUserInfo.gender ? "boys" : "girls";
-    app.temp[sex].pop();
-    this.setData({
-      orderInfo,
-      act: app.temp
-    });
+    if (res.result.code === 0) {
+      const { orderInfo } = this.data;
+      // 修改本地按钮文字
+      orderInfo.status = 2;
+      // 修改本地报名人数
+      const sex = app.globalData.wxUserInfo.gender ? "boys" : "girls";
+      app.temp[sex] = app.temp[sex].filter(openid => openid !== this.openid);
+      this.setData({
+        orderInfo,
+        act: app.temp
+      });
+      wx.showToast({ title: "退款成功", icon: "none" });
+    } else {
+      wx.showToast({ title: "退款失败" });
+    }
   },
   // 输入评论活动内容
   textareaAInput(e) {
@@ -215,7 +219,6 @@ Page({
         }
       })
       .then(({ result }) => {
-        console.log(789, result);
         if (result.stats && result.stats.updated === 1) {
           this.suceessSubmitHandle(info);
         } else {

@@ -14,7 +14,8 @@ exports.main = async (event, context) => {
       .collection("order")
       .where({
         openid: OPENID,
-        sn: event.sn
+        sn: event.sn,
+        status: 1
       })
       .get();
   }

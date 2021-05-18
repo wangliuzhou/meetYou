@@ -93,6 +93,24 @@
         {
           "name": "pages/mine/identify/index",
           "pathName": "pages/mine/identify/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/myDetail/index",
+          "pathName": "pages/mine/myDetail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/asking/index",
+          "pathName": "pages/mine/asking/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/random_act/index",
+          "pathName": "pages/random_act/index",
           "scene": null
         }
       ]
