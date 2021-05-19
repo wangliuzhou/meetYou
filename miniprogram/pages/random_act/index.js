@@ -8,7 +8,8 @@ Page({
     random: {},
     discount: "",
     show_path: false,
-    comment: ""
+    comment: "",
+    mobile: ""
   },
 
   onLoad: function(options) {
@@ -44,6 +45,13 @@ Page({
   },
   // 去报名
   signIn() {
+    if (this.data.mobile.length != 11) {
+      wx.showToast({
+        title: "请先输入被抽选中后，客服要联系的手机号",
+        icon: "none"
+      });
+      return;
+    }
     const that = this;
     wx.showLoading({
       title: "支付中...",
@@ -57,11 +65,10 @@ Page({
         type: "randomActivity",
         real_cost: that.data.random.real_cost,
         nikeName: app.globalData.wxUserInfo.nikeName,
-        gender: app.globalData.wxUserInfo.gender
+        gender: app.globalData.wxUserInfo.gender,
+        mobile: that.data.mobile
       },
       success: res => {
-        console.log(77, res);
-
         const payment = res.result.payment;
         wx.requestPayment({
           ...payment,
@@ -101,6 +108,10 @@ Page({
   textareaAInput(e) {
     this.setData({ comment: e.detail.value.trim() });
   },
+  // 用户输入联系手机号
+  mobileInput(e) {
+    this.setData({ mobile: e.detail.value.trim() });
+  },
   // 提交评论
   submitComment() {
     const { wxUserInfo } = app.globalData;
@@ -122,7 +133,6 @@ Page({
       })
       .then(({ result }) => {
         if (result.stats && result.stats.updated === 1) {
-          console.log(2223366);
           this.getInfo();
           this.setData({ comment: "" });
         } else {

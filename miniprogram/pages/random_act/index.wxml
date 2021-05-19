@@ -113,6 +113,7 @@
 </view>
 
 <view class="padding flex flex-direction">
+	<input type="text" value='{{mobile}}' maxlength='11' class='mobile-input' placeholder='请输入被抽选中后，客服要联系的手机号' bindinput='mobileInput'/>
 	<button class="cu-btn bg-blue margin-tb-sm lg" bindtap="signIn">我要报名</button>
 </view>
 <view class="cu-bar bg-white solid-bottom margin-top-xs">
@@ -124,7 +125,7 @@
 	</view>
 </view>
 <view class="cu-list menu-avatar bg-white">
-	<block wx:for="{{random.comments}}" key='index'>
+	<block wx:for="{{random.comments}}" wx:key='index'>
 		<view class="cu-item">
 			<image class="cu-avatar round" src='{{item.avatarUrl}}' />
 			<view class="content">
@@ -143,7 +144,7 @@
 </view>
 <view class="margin">
 	<view class="cu-form-group">
-		<textarea maxlength="240" bindinput="textareaAInput" placeholder="评轮这个活动"></textarea>
+		<textarea maxlength="240" bindinput="textareaAInput" placeholder="评轮这个活动" value='{{comment}}'></textarea>
 	</view>
 	<text class="text-sm text-red">*您的评论所有人都可见。</text>
 	<view class="padding flex flex-direction margin-sm">

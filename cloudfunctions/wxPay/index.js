@@ -101,7 +101,7 @@ exports.main = async (event, context) => {
         pay: res.returnMsg
       };
     } else if (type === "randomActivity") {
-      let { real_cost, nikeName, gender } = event;
+      let { real_cost, nikeName, gender, mobile } = event;
       // 首先去创建订单
       const { _id } = await db.collection("random_act").add({
         data: {
@@ -111,6 +111,7 @@ exports.main = async (event, context) => {
           createTime: +new Date(),
           nikeName,
           gender,
+          mobile,
           done: false
         }
       });
